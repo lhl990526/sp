@@ -19,7 +19,7 @@ class Login extends Controller
     	if( !$captcha->check($code)){
     		$arr=['code'=>'1','status'=>'error','message'=>'验证码错误'];
     	}else{
-    		$where=['name'=>$name,'password'=>$password];
+    		$where=['user'=>$user ,'password'=>$password];
     		$res=Db::table('admin')->where($where)->find();
     		if (empty($res)){
     			$arr=['code'=>'2','status'=>'error','message'=>"账号或者密码错误"];

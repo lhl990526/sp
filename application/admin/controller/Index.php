@@ -1,15 +1,12 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-class Index extends Controller
+class Index extends common
 {
     public function index()
     {
         return $this->fetch();
     }
 
-    public function hello($name = 'ThinkPHP5')
-    {
-        return '111,' . $name;
-    }
+  
 }

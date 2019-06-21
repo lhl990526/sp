@@ -31,13 +31,13 @@
 			<div class="row cl">
 				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
 				<div class="formControls col-xs-8">
-					<input id="" name="" type="text" placeholder="账户" class="input-text size-L">
+					<input id="user" name="" type="text" placeholder="账户" class="input-text size-L">
 				</div>
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
 				<div class="formControls col-xs-8">
-					<input id="" name="" type="password" placeholder="密码" class="input-text size-L">
+					<input id="password" name="" type="password" placeholder="密码" class="input-text size-L">
 				</div>
 			</div>
 			<div class="row cl">
@@ -67,8 +67,8 @@
 		</form>
 	</div>
 </div>
-<!-- <div class="footer">Copyright 你的公司名称 by H-ui.admin.page.v3.0</div> -->
-<script src="__STATIC__/js/jquery.min.js">
+<div class="footer">Copyright 你的公司名称 by H-ui.admin.page.v3.0</div>
+<script src="__STATIC__/jq/jquery.min.2.1.js">
 </script>
 <!-- <script type="text/javascript" src="__STSTIC__hui/lib/jquery/1.9.1/jquery.min.js"></script> -->
 <!-- <script type="text/javascript" src="__STSTIC__hui/static/h-ui/js/H-ui.js"></script> -->
@@ -83,7 +83,7 @@
 		//登录验证
 		$("#login").click(function(){
 			var code=$("#my_captcha").val()
-			var name=$("#name").val()
+			var user=$("#user").val()
 			var password=$("#password").val()
 			// code_preg=/^\w{5}$/
 			// if (!code_preg test(code)) {
@@ -94,7 +94,7 @@
 				url:"{:url('login/loginAction')}",
 				data:{
 					code:code,
-					name:name,
+					user:user,
 					password:password
 				},
 				dataType:'json',
