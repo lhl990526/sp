@@ -4,6 +4,7 @@ use think\Controller;
 use think\captcha\Captcha;
 use Request;
 use Db;
+use think\facade\Session;
 class Login extends Controller
 {
     public function login()
@@ -12,9 +13,9 @@ class Login extends Controller
     }
     public function loginAction()
     {
-    	$code=Request::get('code');
-    	$user=Request::get('user');
-    	$password=Request::get('password');
+    	$code=Request::post('code');
+    	$user=Request::post('user');
+    	$password=Request::post('password');
     	$captcha = new Captcha();
     	if( !$captcha->check($code)){
     		$arr=['code'=>'1','status'=>'error','message'=>'验证码错误'];
@@ -25,11 +26,20 @@ class Login extends Controller
     			$arr=['code'=>'2','status'=>'error','message'=>"账号或者密码错误"];
     		}else{
     			$arr=['code'=>'0','status'=>'ok','message'=>"登陆成功"];
+                Session::set('name',$user);
+
     		}
+
+
     	}
     	$json=json_encode($arr);
     	echo $json;
     }
+     public function loginOut(){
+        Session::delete('name');
+        $this->redirect('login/login');
+    }
+
     
    }
 
