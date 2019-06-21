@@ -33,8 +33,11 @@ return [
     // 标签库标签结束标记
     'taglib_end'   => '}',
      'tpl_replace_string'  => [
-     '__STATIC__'=>'/qyy1/sp/public/static',
-     '__ROOT__'=>'/qyy1/sp/public'
+     '__STATIC__'=>'/static',
+     '__ROOT__'=>'/'
       ]
+     // '__STATIC__'=>'/qyy1/sp/public/static',
+     // '__ROOT__'=>'/qyy1/sp/public'
+     //  ]
 
 ];
